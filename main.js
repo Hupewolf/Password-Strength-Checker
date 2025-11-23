@@ -1,10 +1,9 @@
 const input = document.getElementById("password");
-const strengthText = document.querySelector(".kq");
+const text = document.querySelector(".kq");
 
 input.addEventListener("input", function () {
     const test = input.value;
 
-    // 4 tiêu chí
     const a = test.length >= 8;
     const b = /[a-z]/.test(test);
     const c = /[A-Z]/.test(test);
@@ -16,23 +15,22 @@ input.addEventListener("input", function () {
         if (c) score++;
         if (d) score++;
 
-    // đánh giá
     if (score === 1) {
-        strengthText.innerHTML = "Weak";
-        strengthText.style.color = "red";
+        text.innerHTML = "Weak";
+        text.style.color = "red";
 
     } 
     else if (score === 2 || score === 3) {
-        strengthText.innerHTML = "Medium";
-        strengthText.style.color = "orange";
+        text.innerHTML = "Medium";
+        text.style.color = "orange";
 
     } 
     else if (score === 4) {
-        strengthText.innerHTML = "Strong";
-        strengthText.style.color = "green";
+        text.innerHTML = "Strong";
+        text.style.color = "green";
 
     } 
     else {
-        strengthText.innerHTML = "";
+        text.innerHTML = "";
     }
 });
