@@ -1,35 +1,38 @@
 const input = document.getElementById("password");
-const strengthText = document.querySelector(".strength");
+const strengthText = document.querySelector(".kq");
 
 input.addEventListener("input", function () {
-    const pwd = input.value;
+    const test = input.value;
 
     // 4 tiêu chí
-    const isLong = pwd.length >= 8;
-    const hasLower = /[a-z]/.test(pwd);
-    const hasUpper = /[A-Z]/.test(pwd);
-    const hasNumberOrSpecial = /[0-9!@#$%^&*(),.?":{}|<>]/.test(pwd);
+    const a = test.length >= 8;
+    const b = /[a-z]/.test(test);
+    const c = /[A-Z]/.test(test);
+    const d = /[0-9!@#$%^&*(),.?":{}|<>]/.test(test);
 
     let score = 0;
-        if (isLong) score++;
-        if (hasLower) score++;
-        if (hasUpper) score++;
-        if (hasNumberOrSpecial) score++;
+        if (a) score++;
+        if (b) score++;
+        if (c) score++;
+        if (d) score++;
 
     // đánh giá
     if (score === 1) {
-        strengthText.innerHTML = "Yếu";
+        strengthText.innerHTML = "Weak";
         strengthText.style.color = "red";
 
-    } else if (score === 2 || score === 3) {
-        strengthText.innerHTML = "Trung bình";
+    } 
+    else if (score === 2 || score === 3) {
+        strengthText.innerHTML = "Medium";
         strengthText.style.color = "orange";
 
-    } else if (score === 4) {
-        strengthText.innerHTML = "Mạnh";
+    } 
+    else if (score === 4) {
+        strengthText.innerHTML = "Strong";
         strengthText.style.color = "green";
 
-    } else {
+    } 
+    else {
         strengthText.innerHTML = "";
     }
 });
